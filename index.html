@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Porfolio </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link href="style.css" rel="stylesheet">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9v4.6h15V9.9H13V13H3V9.9H.5zM8 1v9.4l3.2-3.2 1.4 1.4-5 5-5-5 1.4-1.4L8 10.4V1z"/>
+</svg>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg" style="background: linear-gradient(90deg, #d3d3d4 0%, #b384e9 100%); backdrop-filter: blur(10px);">
+    <div class="container-fluid px-4">
+      
+      <!-- LOGO ON THE LEFT -->
+      <a class="navbar-brand fw-bold fs-3" href="index.html" style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">MY PORFOLIO</a>
+
+      <!-- TOGGLER FOR MOBILE -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="box-shadow: none;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- MENU ITEMS ON THE RIGHT -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mx-2">
+            <a href="#about" class="nav-link ">ABOUT</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a href="#services" class="nav-link ">SERVICES</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a href="#contact" class="nav-link ">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-section text-white py-5 vh-100 d-flex align-items-center">
+  <div class="container hero-content">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h1 class="display-1 fw-bold mb-4 animate-fade-in">Hi I am DENIS</h1>
+        <p class="lead fs-3 mb-5 opacity-90">Welcome to my creative digital space</p>
+        <div class="d-flex gap-4 justify-content-center flex-wrap">
+          <a href="#about" class="btn btn-outline-light btn-lg px-5 py-3">Discover More</a>
+          <a href="#contact" class="btn btn-light btn-lg px-5 py-3 text-dark fw-bold">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="about-section">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="img/WhatsApp Image 2025-04-18 at 09.45.08_a84820e1.jpg" alt="My Photo" class="img-fluid rounded-circle profile-image mb-3">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="about-content">
+                                <h2>About Me</h2>
+                                <p>
+                                    I'm a Frontend Developer  with a passion for web development, graphic design, 
+                                    photography, and digital marketing. I combine logic and creativity to deliver actionable 
+                                    insights and stunning digital experiences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row stats-row">
+                        <div class="col-md-4">
+                            <div class="stat-card years fade-in">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h3 class="stat-number counter" data-target="3">3</h3>
+                                <p class="stat-label">Years Experience</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="stat-card projects fade-in">
+                                <div class="stat-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <h3 class="stat-number counter" data-target="10">10</h3>
+                                <p class="stat-label">Projects Completed</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="stat-card tools fade-in">
+                                <div class="stat-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h3 class="stat-number counter" data-target="8">8</h3>
+                                <p class="stat-label">Tools Mastered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!--SERVICES SECTION -->
+<section class="bg-light py-5" id="services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>OUR SERVICES</h2>
+            
+            <!-- Service Category Filter Navigation -->
+            <div id="filters" class="btn-group mt-3">
+                <button class="btn btn-outline-primary active" data-filter="all">All Services</button>
+                <button class="btn btn-outline-primary" data-filter="data">Data Analytics</button>
+                <button class="btn btn-outline-primary" data-filter="web">Web Development</button>
+                <button class="btn btn-outline-primary" data-filter="marketing">Digital Marketing</button>
+                <button class="btn btn-outline-primary" data-filter="design">UI/UX Design</button>
+                <button class="btn btn-outline-primary" data-filter="ai">AI Solutions</button>
+            </div>
+        </div>
+        
+        <!-- Services Grid Container -->
+        <div class="row g-4" id="servicesGrid">
+            
+            <!-- Data Analytics Service -->
+            <div class="col-md-6 col-lg-4 data">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/data analy.jpg" class="card-img-top" alt="Data Analytics Service">
+                    <div class="card-body">
+                        <h5 class="card-title">Business Intelligence & Analytics</h5>
+                        <p class="card-text">Comprehensive data analysis and visualization solutions to drive informed business decisions through interactive dashboards and advanced reporting.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Development Service -->
+            <div class="col-md-6 col-lg-4 web">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/web deve.jpg" class="card-img-top" alt="Web Development Service">
+                    <div class="card-body">
+                        <h5 class="card-title">Full-Stack Web Development</h5>
+                        <p class="card-text">Custom web applications and responsive websites built with modern technologies, ensuring optimal performance and user experience across all devices.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Digital Marketing Service -->
+            <div class="col-md-6 col-lg-4 marketing">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/DIGITAL M.jpg" class="card-img-top" alt="Digital Marketing Service">
+                    <div class="card-body">
+                        <h5 class="card-title">Digital Marketing Strategy</h5>
+                        <p class="card-text">Strategic digital marketing campaigns including SEO optimization, social media management, and performance analytics to maximize online presence.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UI/UX Design Service -->
+            <div class="col-md-6 col-lg-4 design">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/UI PIC.jpg" class="card-img-top" alt="UI/UX Design Service">
+                    <div class="card-body">
+                        <h5 class="card-title">User Experience Design</h5>
+                        <p class="card-text">User-centered design solutions focusing on intuitive interfaces, accessibility standards, and seamless user journeys to enhance customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Solutions Service -->
+            <div class="col-md-6 col-lg-4 ai">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/AI PIC.jpg" class="card-img-top" alt="AI Solutions Service">
+                    <div class="card-body">
+                        <h5 class="card-title">AI & Machine Learning</h5>
+                        <p class="card-text">Intelligent automation solutions and predictive analytics implementation to streamline operations and unlock actionable insights from complex data.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Consulting Service -->
+            <div class="col-md-6 col-lg-4 all">
+                <div class="card h-100 shadow-sm service-card">
+                    <img src="img/IT.jpg" class="card-img-top" alt="Technology Consulting Service">
+                    <div class="card-body">
+                        <h5 class="card-title">Technology Consulting</h5>
+                        <p class="card-text">Strategic technology consulting to help businesses identify opportunities, optimize processes, and implement scalable solutions for sustainable growth.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- End Services Section -->
+<!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-3">Let's Work Together</h2>
+                        <p class="lead text-muted">Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your goals.</p>
+                    </div>
+                    <form action="https://formspree.io/f/xjkrdnar" method="POST" class="contact-form">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" class="form-control" rows="6" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- AI CHATBOT -->
+  <div id="chatbot" class="chatbot shadow">
+    <div class="chatbot-header chatbot-toggle">🤖 Ask Me Anything!</div>
+    <div class="chatbot-body">
+      <!-- JavaScript will populate this -->
+    </div>
+  </div>
+    
+   <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-lg-6">
+                <h5 class="mb-3">KIMBI DENIS.</h5>
+                <p class="mb-3">Professional Digital Solutions Specialist committed to delivering exceptional results through innovative technology and creative design.</p>
+            </div>
+
+            <!-- Connect + CV Download Section -->
+            <div class="col-lg-6">
+                <h5 class="mb-3">Connect With Me</h5>
+                <div class="social-links mb-3">
+                    <a href="https://www.linkedin.com/in/kimbidenis" target="_blank" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/kimbi12/KIMBI-DENIS" target="_blank" title="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="mailto:kimbidenis67@gmail.com" title="Email">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/237676642108" target="_blank" title="WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- Download CV Button -->
+                <a href="cv.html" class="cv-download-btn">
+                    <i class="bi bi-download "></i>VIEW MY CV
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-4">
+
+        <!-- Copyright -->
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 DENIS. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+ <script src="script.js"></script>
+</body>
+</html>
