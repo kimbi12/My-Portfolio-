@@ -124,16 +124,39 @@
         <div class="text-center mb-5">
             <h2>OUR SERVICES</h2>
             
-            <!-- Service Category Filter Navigation -->
-            <div id="filters" class="btn-group mt-3">
-                <button class="btn btn-outline-primary active" data-filter="all">All Services</button>
-                <button class="btn btn-outline-primary" data-filter="data">Data Analytics</button>
-                <button class="btn btn-outline-primary" data-filter="web">Web Development</button>
-                <button class="btn btn-outline-primary" data-filter="marketing">Digital Marketing</button>
-                <button class="btn btn-outline-primary" data-filter="design">UI/UX Design</button>
-                <button class="btn btn-outline-primary" data-filter="ai">AI Solutions</button>
+             <!-- Service Category Filter Navigation -->
+        <div class="filter-container">
+            <button class="nav-arrow nav-arrow-left" id="scrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="filter-scroll-container" id="filterScrollContainer">
+                <div class="filter-nav" id="filterNav">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i> All Services
+                    </button>
+                    <button class="filter-btn" data-filter="data">
+                        <i class="fas fa-chart-bar"></i> Data Analytics
+                    </button>
+                    <button class="filter-btn" data-filter="web">
+                        <i class="fas fa-code"></i> Web Development
+                    </button>
+                    <button class="filter-btn" data-filter="marketing">
+                        <i class="fas fa-bullhorn"></i> Digital Marketing
+                    </button>
+                    <button class="filter-btn" data-filter="design">
+                        <i class="fas fa-paint-brush"></i> UI/UX Design
+                    </button>
+                    <button class="filter-btn" data-filter="ai">
+                        <i class="fas fa-robot"></i> AI Solutions
+                    </button>
+                </div>
             </div>
+            <button class="nav-arrow nav-arrow-right" id="scrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
+
         
         <!-- Services Grid Container -->
         <div class="row g-4" id="servicesGrid">

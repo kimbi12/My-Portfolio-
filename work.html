@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Service Filter</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Filter Navigation Styles */
+        .filter-container {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .filter-scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0;
+        }
+
+        .filter-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-nav {
+            display: inline-flex;
+            gap: 0.5rem;
+            padding: 0 1rem;
+            min-width: 100%;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            flex-shrink: 0;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow-left {
+            left: 0;
+        }
+
+        .nav-arrow-right {
+            right: 0;
+        }
+
+        /* Service Cards */
+        .service-card {
+            transition: all 0.4s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card.show {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Mobile Responsive */
+        /* Modal Enhancements */
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            border-radius: 15px 15px 0 0;
+            border-bottom: none;
+        }
+
+        .service-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .service-image-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .service-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-features ul li {
+            padding: 0.3rem 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 0 5px 5px 0;
+        }
+
+        .service-features ul li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .timeline-info {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-phase {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-phase .phase-number {
+            background: var(--primary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        .btn-outline-primary:hover,
+        .btn-outline-success:hover,
+        .btn-outline-warning:hover,
+        .btn-outline-info:hover,
+        .btn-outline-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .learn-more-btn {
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .modal-dialog {
+                margin: 1rem;
+            }
+            
+            .modal-body .row {
+                flex-direction: column;
+            }
+            
+            .modal-body .col-md-4 {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1><i class="fas fa-rocket"></i> Our Premium Services</h1>
+            <p>Discover our comprehensive range of digital solutions designed to elevate your business</p>
+        </div>
+
+        <!-- Service Category Filter Navigation -->
+        <div class="filter-container">
+            <button class="nav-arrow nav-arrow-left" id="scrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="filter-scroll-container" id="filterScrollContainer">
+                <div class="filter-nav" id="filterNav">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i> All Services
+                    </button>
+                    <button class="filter-btn" data-filter="data">
+                        <i class="fas fa-chart-bar"></i> Data Analytics
+                    </button>
+                    <button class="filter-btn" data-filter="web">
+                        <i class="fas fa-code"></i> Web Development
+                    </button>
+                    <button class="filter-btn" data-filter="marketing">
+                        <i class="fas fa-bullhorn"></i> Digital Marketing
+                    </button>
+                    <button class="filter-btn" data-filter="design">
+                        <i class="fas fa-paint-brush"></i> UI/UX Design
+                    </button>
+                    <button class="filter-btn" data-filter="ai">
+                        <i class="fas fa-robot"></i> AI Solutions
+                    </button>
+                </div>
+            </div>
+            
+            <button class="nav-arrow nav-arrow-right" id="scrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading services...</p>
+        </div>
+        
+        <!-- Services Grid Container -->
+        <div class="row g-4" id="servicesGrid">
+            
+            <!-- Data Analytics Service -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="data">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" class="card-img-top" alt="Data Analytics Service">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-chart-line"></i> Business Intelligence & Analytics
+                        </h5>
+                        <p class="card-text">Comprehensive data analysis and visualization solutions to drive informed business decisions through interactive dashboards and advanced reporting.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">Data Analytics</span>
+                            <button class="btn btn-sm btn-outline-primary learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Development Service -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="web">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop" class="card-img-top" alt="Web Development Service">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-laptop-code"></i> Full-Stack Web Development
+                        </h5>
+                        <p class="card-text">Custom web applications and responsive websites built with modern technologies, ensuring optimal performance and user experience across all devices.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Web Development</span>
+                            <button class="btn btn-sm btn-outline-success learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Digital Marketing Service -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="marketing">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" class="card-img-top" alt="Digital Marketing Service">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-megaphone"></i> Digital Marketing Strategy
+                        </h5>
+                        <p class="card-text">Strategic digital marketing campaigns including SEO optimization, social media management, and performance analytics to maximize online presence.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-warning">Digital Marketing</span>
+                            <button class="btn btn-sm btn-outline-warning learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UI/UX Design Service -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="design">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop" class="card-img-top" alt="UI/UX Design Service">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-palette"></i> User Experience Design
+                        </h5>
+                        <p class="card-text">User-centered design solutions focusing on intuitive interfaces, accessibility standards, and seamless user journeys to enhance customer satisfaction.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-info">UI/UX Design</span>
+                            <button class="btn btn-sm btn-outline-info learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Solutions Service -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="ai">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" class="card-img-top" alt="AI Solutions Service">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-brain"></i> AI & Machine Learning
+                        </h5>
+                        <p class="card-text">Intelligent automation solutions and predictive analytics implementation to streamline operations and unlock actionable insights from complex data.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-danger">AI Solutions</span>
+                            <button class="btn btn-sm btn-outline-danger learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services for Demo -->
+            <div class="col-md-6 col-lg-4 service-item" data-category="web">
+                <div class="card h-100 service-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" class="card-img-top" alt="E-commerce Development">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-shopping-cart"></i> E-commerce Development
+                        </h5>
+                        <p class="card-text">Complete e-commerce solutions with secure payment gateways, inventory management, and customer relationship tools for online businesses.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Web Development</span>
+                            <button class="btn btn-sm btn-outline-success learn-more-btn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Professional Service Details Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <h5 class="modal-title text-white" id="serviceModalLabel">
+                        <i class="fas fa-briefcase"></i> Service Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="service-image-container">
+                                <img id="modalServiceImage" src="" alt="Service Image" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="service-details">
+                                <h4 id="modalServiceTitle" class="text-primary mb-3"></h4>
+                                <p id="modalServiceDescription" class="text-muted mb-4"></p>
+                                
+                                <div class="service-features mb-4">
+                                    <h6 class="text-secondary mb-3">
+                                        <i class="fas fa-check-circle text-success"></i> Key Features & Benefits
+                                    </h6>
+erviceFeatures" class="list-unstyled">
+                                        <!-- Features will be populated dynamically -->
+                                    </ul>
+                                </div>
+                                
+                                <div class="service-technologies mb-4">
+                                    <h6 class="text-secondary mb-3">
+                                        <i class="fas fa-cogs text-primary"></i> Technologies & Tools
+                                    </h6>
+                                    <div id="modalServiceTechnologies" class="d-flex flex-wrap gap-2">
+                                        <!-- Technologies will be populated dynamically -->
+                                    </div>
+                                </div>
+                                
+                                <div class="service-timeline">
+                                    <h6 class="text-secondary mb-3">
+                                        <i class="fas fa-clock text-warning"></i> Project Timeline
+                                    </h6>
+                                    <div id="modalServiceTimeline" class="timeline-info">
+                                        <!-- Timeline will be populated dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="requestQuote()">
+                        <i class="fas fa-envelope"></i> Request Quote
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="scheduleConsultation()">
+                        <i class="fas fa-calendar-alt"></i> Schedule Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
