@@ -7,9 +7,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link href="style.css" rel="stylesheet">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-  <path d="M.5 9.9v4.6h15V9.9H13V13H3V9.9H.5zM8 1v9.4l3.2-3.2 1.4 1.4-5 5-5-5 1.4-1.4L8 10.4V1z"/>
-</svg>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </head>
 <body>
@@ -120,115 +118,480 @@
 
 <!--SERVICES SECTION -->
 <section class="bg-light py-5" id="services">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2>OUR SERVICES</h2>
-            
-             <!-- Service Category Filter Navigation -->
-        <div class="filter-container">
-            <button class="nav-arrow nav-arrow-left" id="scrollLeft">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div class="filter-scroll-container" id="filterScrollContainer">
-                <div class="filter-nav" id="filterNav">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-th-large"></i> All Services
-                    </button>
-                    <button class="filter-btn" data-filter="data">
-                        <i class="fas fa-chart-bar"></i> Data Analytics
-                    </button>
-                    <button class="filter-btn" data-filter="web">
-                        <i class="fas fa-code"></i> Web Development
-                    </button>
-                    <button class="filter-btn" data-filter="marketing">
-                        <i class="fas fa-bullhorn"></i> Digital Marketing
-                    </button>
-                    <button class="filter-btn" data-filter="design">
-                        <i class="fas fa-paint-brush"></i> UI/UX Design
-                    </button>
-                    <button class="filter-btn" data-filter="ai">
-                        <i class="fas fa-robot"></i> AI Solutions
-                    </button>
-                </div>
-            </div>
-            <button class="nav-arrow nav-arrow-right" id="scrollRight">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>OUR SERVICES</h2>
+      
+      <!-- Service Category Filter Navigation -->
+      <div class="filter-container">
+        <button class="nav-arrow nav-arrow-left" id="scrollLeft">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         
-        <!-- Services Grid Container -->
-        <div class="row g-4" id="servicesGrid">
-            
-            <!-- Data Analytics Service -->
-            <div class="col-md-6 col-lg-4 data">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/data analy.jpg" class="card-img-top" alt="Data Analytics Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Business Intelligence & Analytics</h5>
-                        <p class="card-text">Comprehensive data analysis and visualization solutions to drive informed business decisions through interactive dashboards and advanced reporting.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Web Development Service -->
-            <div class="col-md-6 col-lg-4 web">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/web deve.jpg" class="card-img-top" alt="Web Development Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Full-Stack Web Development</h5>
-                        <p class="card-text">Custom web applications and responsive websites built with modern technologies, ensuring optimal performance and user experience across all devices.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Digital Marketing Service -->
-            <div class="col-md-6 col-lg-4 marketing">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/DIGITAL M.jpg" class="card-img-top" alt="Digital Marketing Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Digital Marketing Strategy</h5>
-                        <p class="card-text">Strategic digital marketing campaigns including SEO optimization, social media management, and performance analytics to maximize online presence.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- UI/UX Design Service -->
-            <div class="col-md-6 col-lg-4 design">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/UI PIC.jpg" class="card-img-top" alt="UI/UX Design Service">
-                    <div class="card-body">
-                        <h5 class="card-title">User Experience Design</h5>
-                        <p class="card-text">User-centered design solutions focusing on intuitive interfaces, accessibility standards, and seamless user journeys to enhance customer satisfaction.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- AI Solutions Service -->
-            <div class="col-md-6 col-lg-4 ai">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/AI PIC.jpg" class="card-img-top" alt="AI Solutions Service">
-                    <div class="card-body">
-                        <h5 class="card-title">AI & Machine Learning</h5>
-                        <p class="card-text">Intelligent automation solutions and predictive analytics implementation to streamline operations and unlock actionable insights from complex data.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Consulting Service -->
-            <div class="col-md-6 col-lg-4 all">
-                <div class="card h-100 shadow-sm service-card">
-                    <img src="img/IT.jpg" class="card-img-top" alt="Technology Consulting Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Technology Consulting</h5>
-                        <p class="card-text">Strategic technology consulting to help businesses identify opportunities, optimize processes, and implement scalable solutions for sustainable growth.</p>
-                    </div>
-                </div>
-            </div>
-            
+        <div class="filter-scroll-container" id="filterScrollContainer">
+          <div class="filter-nav" id="filterNav">
+            <button class="filter-btn active" data-filter="all">
+              <i class="fas fa-th-large"></i> All Services
+            </button>
+            <button class="filter-btn" data-filter="data">
+              <i class="fas fa-chart-bar"></i> Data Analytics
+            </button>
+            <button class="filter-btn" data-filter="web">
+              <i class="fas fa-code"></i> Web Development
+            </button>
+            <button class="filter-btn" data-filter="marketing">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </button>
+            <button class="filter-btn" data-filter="design">
+              <i class="fas fa-paint-brush"></i> UI/UX Design
+            </button>
+            <button class="filter-btn" data-filter="ai">
+              <i class="fas fa-robot"></i> AI Solutions
+            </button>
+          </div>
         </div>
+        <button class="nav-arrow nav-arrow-right" id="scrollRight">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Services Grid Container -->
+      <div class="row g-4" id="servicesGrid">
+        
+        <!-- Data Analytics Service -->
+        <div class="col-md-6 col-lg-4 data">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/data analy.jpg" class="card-img-top" alt="Data Analytics Service">
+            <div class="card-body">
+              <h5 class="card-title">Business Intelligence & Analytics</h5>
+              <p class="card-text">Comprehensive data analysis and visualization solutions to drive informed business decisions through interactive dashboards and advanced reporting.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-primary">Data Analytics</span>
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#dataAnalyticsModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Web Development Service -->
+        <div class="col-md-6 col-lg-4 web">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/web deve.jpg" class="card-img-top" alt="Web Development Service">
+            <div class="card-body">
+              <h5 class="card-title">Full-Stack Web Development</h5>
+              <p class="card-text">Custom web applications and responsive websites built with modern technologies, ensuring optimal performance and user experience across all devices.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success">Web Development</span>
+                <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#webDevModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Digital Marketing Service -->
+        <div class="col-md-6 col-lg-4 marketing">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/DIGITAL M.jpg" class="card-img-top" alt="Digital Marketing Service">
+            <div class="card-body">
+              <h5 class="card-title">Digital Marketing Strategy</h5>
+              <p class="card-text">Strategic digital marketing campaigns including SEO optimization, social media management, and performance analytics to maximize online presence.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-warning">Digital Marketing</span>
+                <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#digitalMarketingModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- UI/UX Design Service -->
+        <div class="col-md-6 col-lg-4 design">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/UI PIC.jpg" class="card-img-top" alt="UI/UX Design Service">
+            <div class="card-body">
+              <h5 class="card-title">User Experience Design</h5>
+              <p class="card-text">User-centered design solutions focusing on intuitive interfaces, accessibility standards, and seamless user journeys to enhance customer satisfaction.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-info">UI/UX Design</span>
+                <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#uiuxModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AI Solutions Service -->
+        <div class="col-md-6 col-lg-4 ai">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/AI PIC.jpg" class="card-img-top" alt="AI Solutions Service">
+            <div class="card-body">
+              <h5 class="card-title">AI & Machine Learning</h5>
+              <p class="card-text">Intelligent automation solutions and predictive analytics implementation to streamline operations and unlock actionable insights from complex data.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-danger">AI Solutions</span>
+                <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#aiSolutionsModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Consulting Service -->
+        <div class="col-md-6 col-lg-4 all">
+          <div class="card h-100 shadow-sm service-card">
+            <img src="img/IT.jpg" class="card-img-top" alt="Technology Consulting Service">
+            <div class="card-body">
+              <h5 class="card-title">Technology Consulting</h5>
+              <p class="card-text">Strategic technology consulting to help businesses identify opportunities, optimize processes, and implement scalable solutions for sustainable growth.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-secondary">Consulting</span>
+                <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#consultingModal">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- SERVICE MODALS -->
+
+<!-- Data Analytics Modal -->
+<div class="modal fade" id="dataAnalyticsModal" tabindex="-1" aria-labelledby="dataAnalyticsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="dataAnalyticsModalLabel">
+          <i class="fas fa-chart-bar me-2"></i>Business Intelligence & Analytics
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/data analy.jpg" class="img-fluid rounded mb-3" alt="Data Analytics">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-primary">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>Interactive Dashboard Creation</li>
+              <li><i class="fas fa-check text-success me-2"></i>Advanced Data Visualization</li>
+              <li><i class="fas fa-check text-success me-2"></i>Predictive Analytics</li>
+              <li><i class="fas fa-check text-success me-2"></i>Business Intelligence Reports</li>
+              <li><i class="fas fa-check text-success me-2"></i>Data Mining & Analysis</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-primary">Technologies Used:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Python</span>
+              <span class="badge bg-light text-dark">R</span>
+              <span class="badge bg-light text-dark">Power BI</span>
+              <span class="badge bg-light text-dark">Tableau</span>
+              <span class="badge bg-light text-dark">SQL</span>
+              <span class="badge bg-light text-dark">Excel</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-primary">Project Timeline:</h6>
+            <p class="mb-0">Typically 2-8 weeks depending on complexity</p>
+            <small class="text-muted">Rush projects available with 48-hour delivery</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Web Development Modal -->
+<div class="modal fade" id="webDevModal" tabindex="-1" aria-labelledby="webDevModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="webDevModalLabel">
+          <i class="fas fa-code me-2"></i>Full-Stack Web Development
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/web deve.jpg" class="img-fluid rounded mb-3" alt="Web Development">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-success">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>Responsive Web Design</li>
+              <li><i class="fas fa-check text-success me-2"></i>E-commerce Solutions</li>
+              <li><i class="fas fa-check text-success me-2"></i>Custom Web Applications</li>
+              <li><i class="fas fa-check text-success me-2"></i>API Development & Integration</li>
+              <li><i class="fas fa-check text-success me-2"></i>Performance Optimization</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-success">Technologies Used:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">React</span>
+              <span class="badge bg-light text-dark">Node.js</span>
+              <span class="badge bg-light text-dark">HTML5</span>
+              <span class="badge bg-light text-dark">CSS3</span>
+              <span class="badge bg-light text-dark">JavaScript</span>
+              <span class="badge bg-light text-dark">Bootstrap</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-success">Project Timeline:</h6>
+            <p class="mb-0">Typically 3-8 weeks depending on complexity</p>
+            <small class="text-muted">Includes testing and deployment</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-success" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Digital Marketing Modal -->
+<div class="modal fade" id="digitalMarketingModal" tabindex="-1" aria-labelledby="digitalMarketingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-light blur">
+        <h5 class="modal-title" id="digitalMarketingModalLabel">
+          <i class="fas fa-bullhorn me-2"></i>Digital Marketing Strategy
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/DIGITAL M.jpg" class="img-fluid rounded mb-3" alt="Digital Marketing">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-warning">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>SEO Optimization</li>
+              <li><i class="fas fa-check text-success me-2"></i>Social Media Management</li>
+              <li><i class="fas fa-check text-success me-2"></i>Content Marketing</li>
+              <li><i class="fas fa-check text-success me-2"></i>PPC Advertising</li>
+              <li><i class="fas fa-check text-success me-2"></i>Email Marketing Campaigns</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-warning">Platforms & Tools:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Google Analytics</span>
+              <span class="badge bg-light text-dark">Facebook Ads</span>
+              <span class="badge bg-light text-dark">Instagram</span>
+              <span class="badge bg-light text-dark">LinkedIn</span>
+              <span class="badge bg-light text-dark">Mailchimp</span>
+              <span class="badge bg-light text-dark">SEMrush</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-warning">Campaign Duration:</h6>
+            <p class="mb-0">Ongoing campaigns with monthly optimization</p>
+            <small class="text-muted">Initial setup: 1-2 weeks</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-warning" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UI/UX Design Modal -->
+<div class="modal fade" id="uiuxModal" tabindex="-1" aria-labelledby="uiuxModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="uiuxModalLabel">
+          <i class="fas fa-paint-brush me-2"></i>User Experience Design
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/UI PIC.jpg" class="img-fluid rounded mb-3" alt="UI/UX Design">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-info">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>User Research & Analysis</li>
+              <li><i class="fas fa-check text-success me-2"></i>Wireframing & Prototyping</li>
+              <li><i class="fas fa-check text-success me-2"></i>Interactive Design Systems</li>
+              <li><i class="fas fa-check text-success me-2"></i>Accessibility Compliance</li>
+              <li><i class="fas fa-check text-success me-2"></i>Usability Testing</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-info">Design Tools:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Figma</span>
+              <span class="badge bg-light text-dark">Adobe XD</span>
+              <span class="badge bg-light text-dark">Sketch</span>
+              <span class="badge bg-light text-dark">Photoshop</span>
+              <span class="badge bg-light text-dark">Illustrator</span>
+              <span class="badge bg-light text-dark">InVision</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-info">Project Timeline:</h6>
+            <p class="mb-0">Typically 2-5 weeks depending on scope</p>
+            <small class="text-muted">Includes research, design, and testing phases</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-info" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI Solutions Modal -->
+<div class="modal fade" id="aiSolutionsModal" tabindex="-1" aria-labelledby="aiSolutionsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="aiSolutionsModalLabel">
+          <i class="fas fa-robot me-2"></i>AI & Machine Learning
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/AI PIC.jpg" class="img-fluid rounded mb-3" alt="AI Solutions">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-danger">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>Custom AI Model Development</li>
+              <li><i class="fas fa-check text-success me-2"></i>Predictive Analytics</li>
+              <li><i class="fas fa-check text-success me-2"></i>Natural Language Processing</li>
+              <li><i class="fas fa-check text-success me-2"></i>Computer Vision Solutions</li>
+              <li><i class="fas fa-check text-success me-2"></i>Automation & Chatbots</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-danger">AI Technologies:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">TensorFlow</span>
+              <span class="badge bg-light text-dark">PyTorch</span>
+              <span class="badge bg-light text-dark">OpenAI API</span>
+              <span class="badge bg-light text-dark">Scikit-learn</span>
+              <span class="badge bg-light text-dark">Keras</span>
+              <span class="badge bg-light text-dark">Pandas</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-danger">Project Timeline:</h6>
+            <p class="mb-0">Typically 4-12 weeks depending on complexity</p>
+            <small class="text-muted">Includes training, testing, and deployment</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Technology Consulting Modal -->
+<div class="modal fade" id="consultingModal" tabindex="-1" aria-labelledby="consultingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary text-white">
+        <h5 class="modal-title" id="consultingModalLabel">
+          <i class="fas fa-handshake me-2"></i>Technology Consulting
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="img/IT.jpg" class="img-fluid rounded mb-3" alt="Technology Consulting">
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-secondary">What We Offer:</h6>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check text-success me-2"></i>Technology Strategy Planning</li>
+              <li><i class="fas fa-check text-success me-2"></i>Digital Transformation</li>
+              <li><i class="fas fa-check text-success me-2"></i>System Architecture Review</li>
+              <li><i class="fas fa-check text-success me-2"></i>Process Optimization</li>
+              <li><i class="fas fa-check text-success me-2"></i>Technology Stack Selection</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-secondary">Consulting Areas:</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Cloud Migration</span>
+              <span class="badge bg-light text-dark">DevOps</span>
+              <span class="badge bg-light text-dark">Security Audit</span>
+              <span class="badge bg-light text-dark">Scalability</span>
+              <span class="badge bg-light text-dark">Integration</span>
+              <span class="badge bg-light text-dark">Training</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-secondary">Consulting Duration:</h6>
+            <p class="mb-0">Flexible engagement: 1 week to 6 months</p>
+            <small class="text-muted">One-time assessments or ongoing support</small>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-secondary" data-bs-dismiss="modal">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </section>
 <!-- End Services Section -->
 <!-- Contact Section -->
@@ -265,12 +628,43 @@
     </section>
 
 <!-- AI CHATBOT -->
-  <div id="chatbot" class="chatbot shadow">
-    <div class="chatbot-header chatbot-toggle">🤖 Ask Me Anything!</div>
-    <div class="chatbot-body">
-      <!-- JavaScript will populate this -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header chatbot-toggle">
+            <div class="title">
+                <i class="fas fa-robot robot-icon"></i>
+                <span>AI Assistant</span>
+            </div>
+            <i class="fas fa-chevron-up toggle-icon"></i>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-log">
+                <div class="welcome-message">
+                    <h4>👋 Hello! I'm your AI Assistant</h4>
+                    <p>I'm here to help you learn about Denis's services and experience. Ask me anything!</p>
+                    <div class="suggestion-chips">
+                        <span class="suggestion-chip">What services do you offer?</span>
+                        <span class="suggestion-chip">Tell me about your projects</span>
+                        <span class="suggestion-chip">How can I contact you?</span>
+                        <span class="suggestion-chip">What's your experience?</span>
+                    </div>
+                </div>
+            </div>
+            <div class="typing-indicator">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Type your message..." />
+                <button id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
+
     
    <!-- Footer -->
 <footer>
